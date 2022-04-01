@@ -1,5 +1,4 @@
-#import pygame
-from projectile import *
+import pygame
 #import time
 
 
@@ -32,10 +31,10 @@ class Player(pygame.sprite.Sprite):
 
     def skin_update(self):
         ... ### Not implemented yet
-    """
+
     def launch_projectile(self):
-        self.all_projectiles.add(Projectile(self))
-    """
+        self.all_projectiles.add(self.game.fireball)
+
     def move_right(self):
         self.image = pygame.image.load('assets/mage/mage-R0.png')
         self.rect.x += self.speed
