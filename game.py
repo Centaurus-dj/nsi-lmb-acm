@@ -1,13 +1,23 @@
-from player import *
+import pygame
+from player import Player
+import projectile
 
 
 class Game:
     def __init__(self):
         self.is_playing = False
+
+        ### Player init
         self.all_player = pygame.sprite.Group()
         self.player = Player(self)
         self.all_player.add(self.player)
+
+        ### Monsters init
         self.all_monsters = pygame.sprite.Group()
+
+        ### Projectiles init
+        self.fireball = projectile.Fireball(self.player)
+
         self.pressed = {}
 
     def game_over(self):
