@@ -3,11 +3,14 @@ import pygame
 import player
 
 
-class Projectile(pygame.sprite.Sprite):
-    def __init__(self, player, img_path):
+class Fireball(pygame.sprite.Sprite):
+    def __init__(self, player: player.Player):
         super().__init__()
         self.player = player
-        self.path = img_path
+        self.path = "assets/projectile/Projectile-0.png"
+        self.image = pygame.image.load(self.path)
+        self.rect = self.image.get_rect()
+
 
     def remove(self):
         self.player.all_projectiles.remove(self)
@@ -56,7 +59,3 @@ class Projectile(pygame.sprite.Sprite):
 
         self.remove()
 
-
-class Fireball(Projectile):
-    def __init__(self, player):
-        super().__init__(player, "assets/projectile/Projectile-0.png")
